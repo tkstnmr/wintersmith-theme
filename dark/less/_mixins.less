@@ -1,0 +1,94 @@
+.appearance (@v:none) {
+  appearance: @v;
+  -moz-appearance: @v;
+  -webkit-appearance: @v;
+  -o-appearance: @v;
+  -ms-appearance: @v;
+}
+
+// .background-image("/images/name", "png", "crop");
+// sizingMethod: crop, image, scale
+.background-image (@v, @extension, @sizing:scale) {
+  background-image: url('@{v}@2x.@{extension}');
+  background-image: none\9; // IE8
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='@{v}.@{extension}',sizingMethod='@{sizing}');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='@{v}.@{extension}',sizingMethod='@{sizing}')";
+}
+
+// auto, contain, cover, px, %
+.background-size (@v: cover) {
+  -webkit-background-size: @v;
+  background-size: @v;
+}
+
+.border-radius (@v) {
+  -moz-border-radius: @v;
+  -webkit-border-radius: @v;
+  border-radius: @v;
+}
+
+// .box-shadow(inset 1px 1px 1px #fff, 2px 2px 2px #eee);
+.box-shadow (@v) {
+  -moz-box-shadow: @v;
+  -webkit-box-shadow: @v;
+  box-shadow: @v;
+}
+
+// content-box, border-box
+.box-sizing (@v: border-box) {
+  -webkit-box-sizing: @v;
+  -moz-box-sizing: @v;
+  box-sizing: @v;
+}
+
+.clearfix () {
+  zoom: 1;
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+  }
+}
+
+.column-count (@v: 3) {
+  column-count: @v;
+  -moz-column-count: @v;
+  -webkit-column-count: @v;
+  -o-column-count: @v;
+  -ms-column-count: @v;
+}
+
+.column-gap (@v: 20px) {
+  column-gap: @v;
+  -moz-column-gap: @v;
+  -webkit-column-gap: @v;
+  -o-column-gap: @v;
+  -ms-column-gap: @v;
+}
+
+// ellipsis, clip
+.text-overflow (@v: ellipsis) {
+  text-overflow: @v;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.text-overflow-default () {
+  text-overflow: clip;
+  white-space: normal;
+  overflow: visible;
+}
+
+.text-size-adjust (@v: 100%) {
+  -webkit-text-size-adjust: @v;
+  -moz-text-size-adjust: @v;
+  -ms-text-size-adjust: @v;
+  -o-text-size-adjust: @v;
+  text-size-adjust: @v;
+}
+
+// none, subpixel-antialiased, antialiased
+.font-smoothing (@v: antialiased) {
+  -webkit-font-smoothing: @v;
+}
